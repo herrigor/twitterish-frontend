@@ -13,7 +13,11 @@
         <strong>{{ tweet.user.name }}</strong> <span>@{{ tweet.user.handle }}</span>
         <time [attr.datetime]="tweet.datetime" class="me-auto">&bull; {{tweet.datetime | timeago }}</time>
 
-        <button type="button" class="btn btn-outline-info btn-sm border-0 align-self-end">
+        <button
+          (click)="onDeleteTweet()"
+          type="button"
+          class="btn btn-outline-info btn-sm border-0 align-self-end"
+        >
           <i class="bi bi-x"></i>
         </button>
       </div>

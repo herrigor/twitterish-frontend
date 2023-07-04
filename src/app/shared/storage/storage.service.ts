@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StorageMap } from '@ngx-pwa/local-storage';
-import { Observable, filter, map, of, tap } from 'rxjs';
+import { Observable, filter, map, of, switchMap, tap } from 'rxjs';
 import { Tweet, TweetJSONSchema } from 'src/app/models/tweet.model';
+import { v4 as uuid } from 'uuid';
 
 const TWEETS_STORE = 'tweets'
 
@@ -17,8 +18,10 @@ export class StorageService {
     // this.tweets$ = this.storage.watch<Tweet[]>(TWEETS_STORE, TweetJSONSchema.definitions.tweets);
     this.tweets$ = (this.storage.watch(TWEETS_STORE) as Observable<Tweet[] | undefined>);
 
+    // create localstorage between sessions
     this.storage.set(TWEETS_STORE, [
       {
+        id: uuid(),
         user: {
           handle: 'igor',
           name: 'igorrr',
@@ -29,6 +32,7 @@ export class StorageService {
         datetime: 1656767842396
       },
       {
+        id: uuid(),
         user: {
           handle: 'igor',
           name: 'igorrr',
@@ -46,11 +50,11 @@ export class StorageService {
   }
 
   saveTweet(tweet: Tweet) {
-    this.tweets$.pipe(
+    return this.tweets$.pipe(
       filter(tweets => tweets !== undefined ),
       map(tweets => tweets?.unshift(tweet) ),
-      tap(updatedTweets => this.storage.set(TWEETS_STORE, updatedTweets)),
-      tap(tweets => console.log(tweets))
+      tap(tweets => console.log(tweets)),
+      switchMap(updatedTweets => this.storage.set(TWEETS_STORE, updatedTweets)),
     )
   }
 }

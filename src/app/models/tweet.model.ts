@@ -1,6 +1,7 @@
 import { UserJSONSChema, User } from "./user.model";
 
 export type Tweet = {
+  id: string;
   user: User;
   message: string;
   datetime: number;
@@ -14,6 +15,9 @@ export const TweetJSONSchema: any = {
     "Tweet": {
       "additionalProperties": false,
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "datetime": {
           "type": "number"
         },
@@ -25,6 +29,7 @@ export const TweetJSONSchema: any = {
         }
       },
       "required": [
+        "id",
         "user",
         "message",
         "datetime"

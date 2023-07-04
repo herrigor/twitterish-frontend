@@ -7,13 +7,29 @@
     />
   </div>
 
-  <div class="composer flex-grow-1">
-    <textarea class="form-control w-100 h-20 mb-3" placeholder="What's going on?">lorem</textarea>
+  <form
+    class="composer flex-grow-1"
+    #composerForm="ngForm"
+    (ngSubmit)="onSendTweet(composerForm)"
+  >
+    <textarea
+      class="form-control w-100 h-20 mb-3"
+      placeholder="What's going on?"
+      name="tweet"
+      ngModel
+      required
+      #tweetMessage="ngModel">
+      lorem</textarea>
     <span class="character-count"></span>
 
     <div class="composer-controls d-flex justify-content-between">
       <app-tweet-media></app-tweet-media>
-      <input class="btn btn-primary rounded-5 px-4" type="submit" value="Tweet" />
+      <input
+        [disabled]="!composerForm.form.valid"
+        class="btn btn-primary rounded-5 px-4"
+        type="submit"
+        value="Tweet"
+      />
     </div>
-  </div>
+  </form>
 </section>

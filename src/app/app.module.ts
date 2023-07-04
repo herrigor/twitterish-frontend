@@ -11,6 +11,7 @@ import { TimelineComponent } from './timeline/timeline/timeline.component';
 import { TweetMediaComponent } from './shared/tweet-media/tweet-media.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { TweetInteractionsComponent } from './tweet/tweet-interactions/tweet-interactions.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TweetInteractionsComponent } from './tweet/tweet-interactions/tweet-int
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgbModule,
     TimeagoModule.forRoot()
   ],

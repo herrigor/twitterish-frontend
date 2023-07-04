@@ -14,4 +14,8 @@ export class TweetComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onDeleteTweet() {
+    console.log(`will delete tweet ${this.tweet.id}`)
+  }
 }
