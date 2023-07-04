@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "generate:schema": "npx ts-json-schema-generator --path 'src/app/**/*.model.ts'",
     "test": "ng test"
   },
   "private": true,
@@ -19,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
     "@ng-bootstrap/ng-bootstrap": "^15.0.1",
+    "@ngx-pwa/local-storage": "^16.3.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",

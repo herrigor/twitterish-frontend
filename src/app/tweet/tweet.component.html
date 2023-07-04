@@ -8,14 +8,25 @@
   </div>
 
   <main class="tweet-body flex-grow-1">
-    <div class="user-info d-flex gap-1">
-      <strong>{{ tweet.user.name }}</strong> <span>@{{ tweet.user.handle }}</span>
-      <time [attr.datetime]="tweet.datetime">&bull; {{tweet.datetime | timeago }}</time>
-    </div>
-    <div>{{ tweet.message }}</div>
+    <header>
+      <div class="user-info d-flex gap-1">
+        <strong>{{ tweet.user.name }}</strong> <span>@{{ tweet.user.handle }}</span>
+        <time [attr.datetime]="tweet.datetime" class="me-auto">&bull; {{tweet.datetime | timeago }}</time>
 
-    <app-tweet-interactions></app-tweet-interactions>
-    <time [attr.datetime]="tweet.datetime">{{ tweet.datetime | date: 'short' }}</time>
+        <button type="button" class="btn btn-outline-info btn-sm border-0 align-self-end">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div>{{ tweet.message }}</div>
+    </main>
+
+    <footer>
+      <app-tweet-interactions></app-tweet-interactions>
+      <time [attr.datetime]="tweet.datetime">{{ tweet.datetime | date: 'MMM dd yyyy, HH:mm' }}</time>
+    </footer>
   </main>
 
 </article>
