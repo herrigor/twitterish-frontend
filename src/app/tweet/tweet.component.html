@@ -1,0 +1,21 @@
+<article class="d-flex">
+  <div class="flex-shrink-0">
+    <img
+      src="{{ tweet.user.avatar }}"
+      alt=""
+      class="w-75 ratio ratio-1x1 rounded-circle"
+    />
+  </div>
+
+  <main class="tweet-body flex-grow-1">
+    <div class="user-info d-flex gap-1">
+      <strong>{{ tweet.user.name }}</strong> <span>@{{ tweet.user.handle }}</span>
+      <time [attr.datetime]="tweet.datetime">&bull; {{tweet.datetime | timeago }}</time>
+    </div>
+    <div>{{ tweet.message }}</div>
+
+    <app-tweet-interactions></app-tweet-interactions>
+    <time [attr.datetime]="tweet.datetime">{{ tweet.datetime | date: 'short' }}</time>
+  </main>
+
+</article>
