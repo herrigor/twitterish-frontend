@@ -15,8 +15,8 @@ export class TweetComposerComponent {
   currentUser = {
     handle: 'guest',
     name: 'guest_account',
-    avatar: 'https://unsplash.it/100/100',
-    bio: 'don\'t mind me, just passing by :)'
+    avatar: 'assets/robot_guest.gif',
+    bio: 'Robot icon created by YardenG; Trees, by Freepik. @Flaticon'
   }
 
   constructor(
@@ -34,8 +34,8 @@ export class TweetComposerComponent {
       user: this.currentUser,
       message: sanitizedTweet,
       datetime: new Date().getTime()
-    }).subscribe(result => {
-      console.log(result)
+    }).subscribe(() => {
+      composer.form.reset()
     })
   }
 }

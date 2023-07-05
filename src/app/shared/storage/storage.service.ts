@@ -29,22 +29,11 @@ export class StorageService {
             user: {
               handle: 'igor',
               name: 'igorrr',
-              avatar: 'https://unsplash.it/100/100',
+              avatar: 'assets/avatar_igor.gif',
               bio: 'hey, i\'m me'
             },
-            message: 'this is fairly-er recent test tweet :)',
-            datetime: 1656767842396
-          },
-          {
-            id: uuid(),
-            user: {
-              handle: 'igor',
-              name: 'igorrr',
-              avatar: 'https://unsplash.it/100/100',
-              bio: 'hey, i\'m me'
-            },
-            message: 'this is an ancient test tweet',
-            datetime: 1553683912689
+            message: 'hello! i\'m Igor Pamplona and i\'m a frontend engineer<br><br> this is a small twitter thingy i made. hope you like it (much of the buttons are for flair only tho)',
+            datetime: new Date().getTime()
           }
         ])
       )

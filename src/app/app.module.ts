@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimeagoModule } from "ngx-timeago";
 
+import { TweetMediaComponent } from './shared/tweet-media/tweet-media.component';
 import { TweetComposerComponent } from './tweet-composer/tweet-composer.component';
 import { TimelineComponent } from './timeline/timeline/timeline.component';
-import { TweetMediaComponent } from './shared/tweet-media/tweet-media.component';
-import { TweetComponent } from './tweet/tweet.component';
-import { TweetInteractionsComponent } from './tweet/tweet-interactions/tweet-interactions.component';
+import { TweetComponent } from './timeline/tweet/tweet.component';
+import { TweetInteractionsComponent } from './timeline/tweet/tweet-interactions/tweet-interactions.component';
 import { FormsModule } from '@angular/forms';
+import { AvatarComponent } from './shared/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     TimelineComponent,
     TweetComponent,
     TweetMediaComponent,
-    TweetInteractionsComponent
+    TweetInteractionsComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,

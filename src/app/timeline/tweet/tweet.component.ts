@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Tweet } from 'src/app/models/tweet.model';
-import { StorageService } from '../shared/storage/storage.service';
+import { StorageService } from '../../shared/storage/storage.service';
 
 @Component({
   selector: '[app-tweet]',
@@ -9,10 +9,17 @@ import { StorageService } from '../shared/storage/storage.service';
 })
 export class TweetComponent {
   @Input() tweet!: Tweet;
+  confirmDelete = false
 
   constructor(private storageService: StorageService) {}
 
   onDeleteTweet() {
-    this.storageService.deleteTweet(this.tweet).subscribe()
+    this.confirmDelete = true
+
+    // this.storageService.deleteTweet(this.tweet).subscribe()
+  }
+
+  onDeleteConfirm() {
+
   }
 }

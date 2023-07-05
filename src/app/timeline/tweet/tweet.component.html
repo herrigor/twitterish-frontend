@@ -1,12 +1,5 @@
 <article class="d-flex">
-  <div class="flex-shrink-0">
-    <img
-      src="{{ tweet.user.avatar }}"
-      alt="{{ tweet.user.name }}"
-      title="{{ tweet.user.bio }}"
-      class="w-75 ratio ratio-1x1 rounded-circle"
-    />
-  </div>
+  <app-avatar [user]="tweet.user"></app-avatar>
 
   <main class="tweet-body flex-grow-1">
     <header>
@@ -35,3 +28,19 @@
   </main>
 
 </article>
+
+<ng-container *ngIf="confirmDelete">
+  <div class="modal show" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Do you really want to delete this tweet?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="onDeleteConfirm()">Yes, delete it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
