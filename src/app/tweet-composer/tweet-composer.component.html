@@ -12,15 +12,25 @@
     #composerForm="ngForm"
     (ngSubmit)="onSendTweet(composerForm)"
   >
-    <textarea
-      class="form-control w-100 h-20 mb-3"
-      placeholder="What's going on?"
-      name="tweet"
-      ngModel
-      required
-      #tweetMessage="ngModel">
-      lorem</textarea>
-    <span class="character-count"></span>
+    <div class="composer-textarea mb-3">
+      <textarea
+        class="form-control w-100 h-20"
+        placeholder="What's going on?"
+        [maxLength]="CHAR_LIMIT"
+        name="tweet"
+        ngModel
+        required
+        #tweetMessage="ngModel"
+      ></textarea>
+      <span class="form-text d-flex justify-content-end">
+        <span class="counter"
+        [ngClass]="{
+          'text-danger': tweetMessage.value?.length > (CHAR_LIMIT * .92),
+          'text-warning': tweetMessage.value?.length > (CHAR_LIMIT * .85) && tweetMessage.value?.length < (CHAR_LIMIT * .92),
+        }">
+          {{tweetMessage.value?.length}}</span>/{{CHAR_LIMIT}}
+      </span>
+    </div>
 
     <div class="composer-controls d-flex justify-content-between">
       <app-tweet-media></app-tweet-media>

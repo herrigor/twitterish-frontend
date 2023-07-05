@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Tweet } from 'src/app/models/tweet.model';
 import { StorageService } from '../shared/storage/storage.service';
 
@@ -7,17 +7,12 @@ import { StorageService } from '../shared/storage/storage.service';
   templateUrl: './tweet.component.html',
   styleUrls: ['./tweet.component.scss']
 })
-export class TweetComponent implements OnInit {
+export class TweetComponent {
   @Input() tweet!: Tweet;
 
-  constructor(private storageService: StorageService) {
-  }
-
-  ngOnInit() {
-  }
+  constructor(private storageService: StorageService) {}
 
   onDeleteTweet() {
-    console.log(`will delete tweet ${this.tweet.id}`)
-    this.storageService.deleteTweet(this.tweet).subscribe(() => console.log(`deleted tweet ${this.tweet.id}`))
+    this.storageService.deleteTweet(this.tweet).subscribe()
   }
 }

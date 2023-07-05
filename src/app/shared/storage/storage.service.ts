@@ -22,7 +22,7 @@ export class StorageService {
 
   hydrateTweets() {
     (this.storage.get(TWEETS_STORE) as Observable<Tweet[] | undefined>).pipe(
-      filter(tweets => tweets === undefined ),
+      filter(tweets => tweets === undefined || !tweets.length ),
       switchMap(() => this.storage.set(TWEETS_STORE, [
           {
             id: uuid(),
@@ -32,7 +32,7 @@ export class StorageService {
               avatar: 'https://unsplash.it/100/100',
               bio: 'hey, i\'m me'
             },
-            message: 'this is fairly recent test tweet :)',
+            message: 'this is fairly-er recent test tweet :)',
             datetime: 1656767842396
           },
           {
@@ -59,7 +59,6 @@ export class StorageService {
     return (this.storage.get(TWEETS_STORE) as Observable<Tweet[]>).pipe(
       filter(tweets => tweets !== undefined ),
       tap(tweets => tweets?.unshift(tweet) ),
-      tap(tweets => console.log(tweets)),
       distinctUntilChanged(),
       take(1),
       switchMap(updatedTweets => this.storage.set(TWEETS_STORE, updatedTweets)),
@@ -67,6 +66,7 @@ export class StorageService {
   }
 
   deleteTweet(tweet: Tweet) {
+    // dialog confirmation
     return (this.storage.get(TWEETS_STORE) as Observable<Tweet[]>).pipe(
       filter(tweets => tweets !== undefined ),
       distinctUntilChanged(),
