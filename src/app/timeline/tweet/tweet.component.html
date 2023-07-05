@@ -17,13 +17,13 @@
       </div>
     </header>
 
-    <main>
+    <main class="mb-3">
       <div [innerHTML]="tweet.message"></div>
     </main>
 
-    <footer>
+    <footer class="form-text">
       <app-tweet-interactions></app-tweet-interactions>
-      <time [attr.datetime]="tweet.datetime">{{ tweet.datetime | date: 'MMM dd yyyy, HH:mm' }}</time>
+      <time [attr.datetime]="tweet.datetime">{{ tweet.datetime | date: 'HH:mm · MMM/dd/yyyy' }}</time> · <span class="link-primary">"twitter" from Angular</span>
     </footer>
   </main>
 

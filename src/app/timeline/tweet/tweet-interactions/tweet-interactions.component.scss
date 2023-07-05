@@ -1,3 +1,7 @@
+ul {
+  width: clamp(100px, 100%, 400px);
+}
+
 button {
   --bs-btn-active-color: #999;
 }
