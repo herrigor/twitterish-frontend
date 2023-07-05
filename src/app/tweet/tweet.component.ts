@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tweet } from 'src/app/models/tweet.model';
+import { StorageService } from '../shared/storage/storage.service';
 
 @Component({
   selector: '[app-tweet]',
@@ -9,7 +10,7 @@ import { Tweet } from 'src/app/models/tweet.model';
 export class TweetComponent implements OnInit {
   @Input() tweet!: Tweet;
 
-  constructor() {
+  constructor(private storageService: StorageService) {
   }
 
   ngOnInit() {
@@ -17,5 +18,6 @@ export class TweetComponent implements OnInit {
 
   onDeleteTweet() {
     console.log(`will delete tweet ${this.tweet.id}`)
+    this.storageService.deleteTweet(this.tweet).subscribe(() => console.log(`deleted tweet ${this.tweet.id}`))
   }
 }
