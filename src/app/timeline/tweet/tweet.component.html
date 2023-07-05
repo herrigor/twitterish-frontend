@@ -28,19 +28,3 @@
   </main>
 
 </article>
-
-<ng-container *ngIf="confirmDelete">
-  <div class="modal show" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <p>Do you really want to delete this tweet?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="onDeleteConfirm()">Yes, delete it</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-container>

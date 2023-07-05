@@ -9,17 +9,13 @@ import { StorageService } from '../../shared/storage/storage.service';
 })
 export class TweetComponent {
   @Input() tweet!: Tweet;
-  confirmDelete = false
 
   constructor(private storageService: StorageService) {}
 
   onDeleteTweet() {
-    this.confirmDelete = true
+    const result = confirm('delete really?')
+    if(!result) return
 
-    // this.storageService.deleteTweet(this.tweet).subscribe()
-  }
-
-  onDeleteConfirm() {
-
+    this.storageService.deleteTweet(this.tweet).subscribe()
   }
 }
