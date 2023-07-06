@@ -32,7 +32,7 @@ export class StorageService {
               avatar: 'assets/avatar_anim.gif',
               bio: 'hey, i\'m me'
             },
-            message: 'hello! i\'m Igor Pamplona and i\'m a frontend engineer<br><br> this is a small twitter thingy i made. hope you like it (much of the buttons are for flair only tho)',
+            message: 'hello! i\'m Igor Pamplona and i\'m a frontend engineer<br><br> this is a small twitterish thingy i made. hope you like it (much of the buttons are for flair only tho)',
             datetime: new Date().getTime()
           }
         ])
