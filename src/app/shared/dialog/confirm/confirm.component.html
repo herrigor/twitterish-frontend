@@ -1,0 +1,10 @@
+<div class="modal-footer border-0 d-flex justify-content-between">
+  <p class="lh-sm">
+    Delete this tweet?<br>
+    <small class="form-text">(This action can't be undone)</small>
+  </p>
+  <div class="dialog-controls d-flex gap-2">
+    <button type="button" class="btn btn-primary" (click)="onConfirmDelete(false)">No (close)</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="onConfirmDelete(true)">Yes</button>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimeagoModule } from "ngx-timeago";
 
 import { TweetMediaComponent } from './shared/tweet-media/tweet-media.component';
@@ -29,6 +29,7 @@ import { AvatarComponent } from './shared/avatar/avatar.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    NgbModalModule,
     TimeagoModule.forRoot()
   ],
   providers: [],

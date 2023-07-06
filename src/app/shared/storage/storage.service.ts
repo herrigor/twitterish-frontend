@@ -29,7 +29,7 @@ export class StorageService {
             user: {
               handle: 'igor',
               name: 'igorrr',
-              avatar: 'assets/avatar_igor.gif',
+              avatar: 'assets/avatar_anim.gif',
               bio: 'hey, i\'m me'
             },
             message: 'hello! i\'m Igor Pamplona and i\'m a frontend engineer<br><br> this is a small twitter thingy i made. hope you like it (much of the buttons are for flair only tho)',

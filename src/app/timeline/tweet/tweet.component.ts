@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Tweet } from 'src/app/models/tweet.model';
 import { StorageService } from '../../shared/storage/storage.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DialogConfirmComponent } from 'src/app/shared/dialog/confirm/confirm.component';
 
 @Component({
   selector: '[app-tweet]',
@@ -10,12 +12,13 @@ import { StorageService } from '../../shared/storage/storage.service';
 export class TweetComponent {
   @Input() tweet!: Tweet;
 
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService, private modalService: NgbModal) {}
 
   onDeleteTweet() {
-    const result = confirm('delete really?')
-    if(!result) return
+    const modalRef = this.modalService.open(DialogConfirmComponent);
 
-    this.storageService.deleteTweet(this.tweet).subscribe()
+    modalRef.closed.subscribe(confirmation => {
+      if(confirmation) this.storageService.deleteTweet(this.tweet).subscribe()
+    });
   }
 }
