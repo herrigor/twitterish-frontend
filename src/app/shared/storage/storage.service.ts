@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import {  Observable, distinctUntilChanged, filter, of, switchMap, take, tap } from 'rxjs';
-import { Tweet } from '../../models/tweet.model';
+import { AVATAR_ANIM, Tweet } from '../../models/tweet.model';
 import { nanoid } from 'nanoid';
 
 const TWEETS_STORE = 'tweets'
@@ -29,7 +29,7 @@ export class StorageService {
             user: {
               handle: 'igor',
               name: 'igorrr',
-              avatar: 'assets/avatar_anim.gif',
+              avatar: AVATAR_ANIM,
               bio: 'hey, i\'m me'
             },
             message: 'hello! i\'m Igor Pamplona and i\'m a frontend engineer<br><br> this is a small twitterish thingy i made. hope you like it (much of the buttons are for flair only tho)',
