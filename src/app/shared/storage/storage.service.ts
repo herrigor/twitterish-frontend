@@ -1,8 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { StorageMap } from '@ngx-pwa/local-storage';
-import { EMPTY, Observable, distinctUntilChanged, filter, map, of, switchMap, take, tap } from 'rxjs';
-import { Tweet, TweetJSONSchema } from 'src/app/models/tweet.model';
-import { v4 as uuid } from 'uuid';
+import {  Observable, distinctUntilChanged, filter, of, switchMap, take, tap } from 'rxjs';
+import { Tweet } from '../../models/tweet.model';
+import { nanoid } from 'nanoid';
 
 const TWEETS_STORE = 'tweets'
 
@@ -25,7 +25,7 @@ export class StorageService {
       filter(tweets => tweets === undefined || !tweets.length ),
       switchMap(() => this.storage.set(TWEETS_STORE, [
           {
-            id: uuid(),
+            id: nanoid(),
             user: {
               handle: 'igor',
               name: 'igorrr',

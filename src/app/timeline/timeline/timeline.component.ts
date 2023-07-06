@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Tweet } from 'src/app/models/tweet.model';
-import { StorageService } from 'src/app/shared/storage/storage.service';
+import { Tweet } from '../../models/tweet.model';
+import { StorageService } from '../../shared/storage/storage.service';
 
 @Component({
   selector: 'app-timeline',

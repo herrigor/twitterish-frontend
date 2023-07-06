@@ -1,7 +1,7 @@
 import { Component, ElementRef, SecurityContext, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { StorageService } from '../shared/storage/storage.service';
-import { v4 as uuid } from 'uuid';
+import { nanoid } from 'nanoid';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -30,7 +30,7 @@ export class TweetComposerComponent {
     if(!sanitizedTweet) return
 
     this.storageService.saveTweet({
-      id: uuid(),
+      id: nanoid(),
       user: this.currentUser,
       message: sanitizedTweet,
       datetime: new Date().getTime()

@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Tweet } from 'src/app/models/tweet.model';
+import { Tweet } from '../../models/tweet.model';
 import { StorageService } from '../../shared/storage/storage.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DialogConfirmComponent } from 'src/app/shared/dialog/confirm/confirm.component';
+import { DialogConfirmComponent } from '../../shared/dialog/confirm/confirm.component';
 
 @Component({
   selector: '[app-tweet]',
